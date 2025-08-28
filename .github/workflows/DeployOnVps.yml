@@ -80,8 +80,8 @@ jobs:
             cd ~/tech
             docker compose pull
             docker compose up -d
-            docker cp ~/tech/appsettings.Template.json billsflow.api:/app/appsettings.Development.json
-            docker restart billsflow.api
+            docker cp ~/tech/appsettings.Template.json BillsFlow.api:/app/appsettings.Development.json
+            docker restart BillsFlow.api
           EOF
 
         
