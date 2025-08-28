@@ -13,9 +13,9 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["BillsFlow.Api/BillsFlow.Api.csproj", "BillsFlow.Api/"]
-COPY ["RideHubb.Infrastructure/RideHubb.Infrastructure.csproj", "RideHubb.Infrastructure/"]
-COPY ["RideHubb.Application/RideHubb.Application.csproj", "RideHubb.Application/"]
-COPY ["RideHubb.Domain/RideHubb.Domain.csproj", "RideHubb.Domain/"]
+COPY ["BillsFlow.Infrastructure/BillsFlow.Infrastructure.csproj", "BillsFlow.Infrastructure/"]
+COPY ["BillsFlow.Application/BillsFlow.Application.csproj", "BillsFlow.Application/"]
+COPY ["BillsFlow.Domain/BillsFlow.Domain.csproj", "BillsFlow.Domain/"]
 RUN dotnet restore "./BillsFlow.Api/BillsFlow.Api.csproj"
 
 COPY . .
