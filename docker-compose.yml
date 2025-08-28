@@ -1,0 +1,28 @@
+services:
+  billsflow.api:
+    image: ${DOCKER_REGISTRY-}billsflowapi
+    container_name: ${PROJECT_NAME}.api
+    build:
+      context: .
+      dockerfile: BillsFlow.Api/Dockerfile
+    depends_on:
+      - billsflow.database
+    ports:
+     - ${API_HTTP_PORT}:8080
+     - ${API_HTTPS_PORT}:8081
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - ASPNETCORE_HTTPS_PORT=${API_HTTPS_PORT}
+    restart: on-failure
+
+  billsflow.database:
+     image: postgres:17
+     container_name: ${PROJECT_NAME}.database
+     environment:
+        POSTGRES_USER: ${POSTGRES_USER}
+        POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+        POSTGRES_DB: ${POSTGRES_DB}
+     volumes:
+     - ./.containers/database:/var/lib/postgresql/data
+     ports:
+     - 5432:5432
