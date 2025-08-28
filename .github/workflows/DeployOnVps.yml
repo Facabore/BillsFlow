@@ -48,7 +48,7 @@ jobs:
         # 5️⃣ Build y Push de Docker
       - name: 📦 Build & Push Docker image
         run: |
-          docker build -t $IMAGE_NAME:${{ steps.meta.outputs.IMAGE_TAG }} -f src/BillsFlow.Api/Dockerfile src
+          docker build -t $IMAGE_NAME:${{ steps.meta.outputs.IMAGE_TAG }} -f BillsFlow.Api/Dockerfile .
 
           if [[ "${{ steps.meta.outputs.PUSH_LATEST }}" == "true" ]]; then
             docker tag $IMAGE_NAME:${{ steps.meta.outputs.IMAGE_TAG }} $IMAGE_NAME:latest
