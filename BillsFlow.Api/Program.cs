@@ -25,7 +25,7 @@ app.ApplyMigrations();
     
 
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 // Custom middleware
 app.UseCustomExceptionHandler();
